@@ -1,0 +1,33 @@
+# 本機環境與快取
+.runtime/
+__pycache__/
+*.py[cod]
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*
+
+# 辨識資料、下載草稿與測試輸出
+*.log
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.bmp
+*.pdf
+*DOM.html
+*測試*.html
+*測試結果.json
+響應介面測試結果.json
+*草稿*.json
+
+# 原始參考文件；只保留工具必要範本
+*.doc
+*.docx
+*.xls
+*.xlsx
+!賸餘款繳回簽辦單_重新排版.xlsx
+
+/參考文件/
+/測試資料/整理清單.json
