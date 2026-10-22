@@ -2,6 +2,10 @@
 
 興中國小專案賸餘款繳回簽辦工具，可在本機填寫、辨識公文截圖、檢核金額、列印 A4 簽辦單及下載 Excel。
 
+## 線上使用
+
+直接開啟[賸餘款簽辦工具](https://ccwforwork1115-ai.github.io/remainingbalancetool/)，即可填寫、列印及下載 Excel／JSON 草稿。線上版由瀏覽器整理 OCR 文字，不需啟動本機 Python 服務。
+
 ## 下載與啟動
 
 1. 按 GitHub 的 **Code → Download ZIP**，解壓縮後使用。
