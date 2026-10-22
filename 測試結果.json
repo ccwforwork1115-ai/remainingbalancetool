@@ -1,0 +1,290 @@
+{
+  "total": 71,
+  "passed": 71,
+  "results": [
+    {
+      "name": "初始空白資料阻擋列印",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"100,000\"",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"0\"",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"999999999999\"",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"1,00\"",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"-1\"",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"1.5\"",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"\"",
+      "pass": true
+    },
+    {
+      "name": "金額輸入 \"1000000000000\"",
+      "pass": true
+    },
+    {
+      "name": "大寫金額 0",
+      "pass": true
+    },
+    {
+      "name": "大寫金額 4750",
+      "pass": true
+    },
+    {
+      "name": "大寫金額 10001",
+      "pass": true
+    },
+    {
+      "name": "大寫金額 100000001",
+      "pass": true
+    },
+    {
+      "name": "大寫金額 100010001",
+      "pass": true
+    },
+    {
+      "name": "大寫金額 100100",
+      "pass": true
+    },
+    {
+      "name": "閏年及無效日期",
+      "pass": true
+    },
+    {
+      "name": "示例差額及預覽",
+      "pass": true
+    },
+    {
+      "name": "完整資料通過檢核",
+      "pass": true
+    },
+    {
+      "name": "完整資料呼叫列印",
+      "pass": true
+    },
+    {
+      "name": "超支阻擋與隱藏負數",
+      "pass": true
+    },
+    {
+      "name": "零餘額提示",
+      "pass": true
+    },
+    {
+      "name": "其他抬頭必填",
+      "pass": true
+    },
+    {
+      "name": "其他抬頭預覽",
+      "pass": true
+    },
+    {
+      "name": "一般公文",
+      "pass": true
+    },
+    {
+      "name": "全形與空白",
+      "pass": true
+    },
+    {
+      "name": "西元日期",
+      "pass": true
+    },
+    {
+      "name": "發文字號換行",
+      "pass": true
+    },
+    {
+      "name": "優先發文日期",
+      "pass": true
+    },
+    {
+      "name": "套用辨識後必須重新確認",
+      "pass": true
+    },
+    {
+      "name": "草稿匯出有效JSON",
+      "pass": true
+    },
+    {
+      "name": "草稿載入往返",
+      "pass": true
+    },
+    {
+      "name": "無效草稿錯誤提示",
+      "pass": true
+    },
+    {
+      "name": "預覽以純文字呈現",
+      "pass": true
+    },
+    {
+      "name": "日曆選日期自動轉民國",
+      "pass": true
+    },
+    {
+      "name": "手填日期同步日曆",
+      "pass": true
+    },
+    {
+      "name": "無效手填日期不帶入日曆",
+      "pass": true
+    },
+    {
+      "name": "核定日期文號無固定斷行",
+      "pass": true
+    },
+    {
+      "name": "機關名稱即時更新簽辦單抬頭",
+      "pass": true
+    },
+    {
+      "name": "機關名稱隨草稿保存及還原",
+      "pass": true
+    },
+    {
+      "name": "試填示例保留使用者機關名稱",
+      "pass": true
+    },
+    {
+      "name": "機關名稱空白阻擋列印",
+      "pass": true
+    },
+    {
+      "name": "超支即時顯示紅色警示與差額",
+      "pass": true
+    },
+    {
+      "name": "離開實支欄位彈出超支提醒",
+      "pass": true
+    },
+    {
+      "name": "相同超支金額不重複彈出",
+      "pass": true
+    },
+    {
+      "name": "金額修正即清除超支警示",
+      "pass": true
+    },
+    {
+      "name": "降低核定數造成超支也提醒",
+      "pass": true
+    },
+    {
+      "name": "金額缺漏不誤報超支",
+      "pass": true
+    },
+    {
+      "name": "Excel所有XML皆可解析",
+      "pass": true
+    },
+    {
+      "name": "Excel金額為數字且保留差額公式",
+      "pass": true
+    },
+    {
+      "name": "Excel文字特殊字元安全保留且非公式",
+      "pass": true
+    },
+    {
+      "name": "Excel下載副檔名與MIME正確",
+      "pass": true
+    },
+    {
+      "name": "Excel為真正ZIP封裝",
+      "pass": true
+    },
+    {
+      "name": "超支時阻擋Excel下載",
+      "pass": true
+    },
+    {
+      "name": "未完成附件確認阻擋Excel下載",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 0",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 9500",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 10000",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 12345",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 100000000",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 100000001",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 123456789",
+      "pass": true
+    },
+    {
+      "name": "億萬元格式 999999999999",
+      "pass": true
+    },
+    {
+      "name": "簽辦單金額合併為大寫與括號數字",
+      "pass": true
+    },
+    {
+      "name": "Excel同步億萬元及大寫括號格式",
+      "pass": true
+    },
+    {
+      "name": "Excel完整沿用範本合併與列印設定",
+      "pass": true
+    },
+    {
+      "name": "新版簽章區與分列機關日期",
+      "pass": true
+    },
+    {
+      "name": "OCR去除中英文空白並保留換行",
+      "pass": true
+    },
+    {
+      "name": "OCR移除全形空格Tab及不換行空白",
+      "pass": true
+    },
+    {
+      "name": "OCR結果顯示時已去除空格",
+      "pass": true
+    },
+    {
+      "name": "OCR複製全文使用去空格文字",
+      "pass": true
+    },
+    {
+      "name": "OCR複製失敗仍可選取去空格全文",
+      "pass": true
+    }
+  ]
+}

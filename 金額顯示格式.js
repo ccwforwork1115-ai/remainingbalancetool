@@ -1,0 +1,2 @@
+function amountInUnits(n){if(n===null)return '';if(n===0)return '0元';return [[100000000,'億'],[10000,'萬'],[1,'']].map(([unit,label])=>{const value=Math.floor(n/unit)%10000;return value?value.toLocaleString('zh-TW')+label:''}).join('')+'元'}
+function refundAmount(n){return '新臺幣 '+chinese(n)+' 元整（$'+n.toLocaleString('zh-TW')+'）'}

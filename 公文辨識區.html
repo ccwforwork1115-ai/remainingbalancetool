@@ -1,0 +1,30 @@
+<section class="card ocr-entry" id="ocr-section" aria-labelledby="ocr-title">
+ <div class="ocr-entry-heading"><span class="ocr-kicker">選擇資料輸入方式</span></div>
+ <div class="entry-modes" role="group" aria-label="資料輸入方式"><button id="modeOCR" type="button" aria-pressed="true" aria-controls="ocrContent"><strong>上傳公文辨識</strong><span>貼上截圖，核對後帶入</span></button><button id="modeManual" type="button" aria-pressed="false" aria-controls="ocrContent project-section"><strong>直接登打</strong><span>自行填寫專案與金額</span></button></div>
+ <p id="manualModeHint" class="hint" hidden>直接在下方填寫即可；有需要時，可隨時切回公文辨識。</p>
+ <div id="ocrContent">
+ <h2 id="ocr-title">截一張公文，帶入專案資料</h2>
+ <p class="ocr-lead">截圖包含「發文日期、發文字號、主旨」即可。工具會從主旨找出專案名稱；若含核定金額，也會一併擷取。</p>
+ <div id="dropZone" class="ocr-dropzone" role="button" tabindex="0" aria-label="選擇或拖入公文截圖，也可以按 Ctrl 加 V 貼上" aria-describedby="cropHint">
+  <div class="sample-letter" aria-hidden="true"><div class="sample-title">核定公文</div><div>發文日期 <i></i></div><div>發文字號 <i></i></div><div class="sample-subject">主旨 <span>○○計畫補助案…</span></div><div class="crop-line"><span>截到這裡即可</span></div></div>
+  <div class="drop-copy"><span class="upload-glyph"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16V4m-4 4 4-4 4 4M4 15v6h16v-6"/></svg></span><strong>點此選圖，或將截圖拖到這裡</strong><span class="paste-hint">也可以直接按 <kbd>Ctrl</kbd> + <kbd>V</kbd> 貼上</span><span id="chooseImage" class="upload-cta">選擇公文截圖</span><span class="format-note">PNG、JPG、WebP、BMP · 上限 15 MB</span></div>
+ </div>
+ <input id="image" type="file" accept="image/png,image/jpeg,image/webp,image/bmp" hidden aria-label="選取公文截圖">
+ <p id="cropHint" class="capture-hint">Windows 可按 <kbd>Win</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> 截圖，再回到這裡貼上。選圖後會自動開始辨識。</p>
+ <div id="imagePanel" class="image-panel" hidden><div class="image-caption"><span id="imageName">公文截圖</span><button id="replaceImage" class="quiet" type="button">更換圖片</button></div><img id="photo" alt="待辨識的公文截圖預覽"></div>
+ <div class="ocr-controls"><button id="ocr" disabled>重新辨識</button><p id="status" class="hint" role="status" aria-live="polite">準備好公文截圖，就能開始。首次辨識需連線下載語言檔。</p></div>
+ <div id="ocrResults" class="ocr-candidates" hidden aria-labelledby="reviewTitle">
+  <div class="result-heading"><div><span class="review-eyebrow">下一步 · 核對資料</span><h3 id="reviewTitle">辨識好了，請確認這 4 項</h3></div><span id="reviewCount" class="review-count" role="status" aria-live="polite"></span></div>
+  <p id="reviewSummary" class="review-summary"></p>
+  <div class="review-field" data-review="candidateProject"><div class="review-label"><label for="candidateProject">專案名稱</label><span id="candidateProjectState" class="field-state"></span></div><textarea id="candidateProject" rows="3" placeholder="未擷取到名稱，請對照公文補填" aria-describedby="candidateProjectState"></textarea><datalist id="projectOptions"></datalist><div id="projectChoices" class="review-choices" aria-label="專案名稱候選"></div></div>
+  <div class="review-grid"><div class="review-field" data-review="candidateDate"><div class="review-label"><label for="candidateDate">核定日期</label><span id="candidateDateState" class="field-state"></span></div><input id="candidateDate" placeholder="例：114年10月30日" aria-describedby="candidateDateState"></div><div class="review-field" data-review="candidateNumber"><div class="review-label"><label for="candidateNumber">核定文號</label><span id="candidateNumberState" class="field-state"></span></div><input id="candidateNumber" placeholder="請依原公文補填" aria-describedby="candidateNumberState"></div></div>
+  <div class="review-field" data-review="candidateApproved"><div class="review-label"><label for="candidateApproved">核定金額 <span class="label-unit">／ 元</span></label><span id="candidateApprovedState" class="field-state"></span></div><input id="candidateApproved" inputmode="numeric" list="amountOptions" placeholder="未擷取到金額，可手動補填" aria-describedby="candidateApprovedState"><datalist id="amountOptions"></datalist></div>
+  <details id="extractionDetails" class="review-details"><summary>查看辨識提醒與候選說明</summary><p id="projectExtractHint" class="hint"></p><p id="amountExtractHint" class="hint"></p></details>
+  <details id="subjectDetails" class="review-details"><summary>對照公文主旨</summary><p id="subjectText" class="subject-text"></p></details>
+  <div class="review-footer"><p id="applyHelp">空白欄位不會覆蓋下方已填資料。</p><button id="apply" type="button">確認並帶入資料 ↓</button></div>
+  <span id="parserBadge" class="sr-only">文字整理</span>
+ </div>
+ <details id="rawDetails" class="ocr-raw-result"><summary>查看 OCR 辨識結果・自行複製</summary><p class="hint">辨識文字已自動去除空格並保留換行，尚未校正錯字。可選取需要的內容，複製到下方欄位。</p><label class="sr-only" for="raw">OCR 辨識原文</label><textarea id="raw" rows="8" readonly placeholder="辨識公文圖片後，原文會顯示在這裡。"></textarea><div class="raw-actions"><button id="copyOCR" type="button" class="secondary" disabled>複製全部文字</button><span id="copyOCRStatus" class="hint" role="status" aria-live="polite"></span></div><button id="extract" hidden type="button">重新整理文字</button></details>
+ <p class="inline-note">請以原核定公文為準，確認內容後再帶入。</p>
+ </div>
+</section>

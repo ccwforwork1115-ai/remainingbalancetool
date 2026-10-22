@@ -1,0 +1,374 @@
+{
+    "total":  91,
+    "passed":  91,
+    "results":  [
+                    {
+                        "name":  "瀏覽器：主旨有完整計畫名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：主旨有完整計畫名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：OCR空白及全形數字",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：OCR空白及全形數字",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：主旨與計畫名稱跨行",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：主旨與計畫名稱跨行",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：無引號年度名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：無引號年度名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：兩個專案不擅自選擇",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：兩個專案不擅自選擇",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：未截到主旨",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：未截到主旨",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：主旨無明確名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：主旨無明確名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：說明內計畫不可誤取",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：說明內計畫不可誤取",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：前案日期不優先",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：前案日期不優先",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：西元日期轉換",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：西元日期轉換",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：無效日期不填入",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：無效日期不填入",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：重複名稱去重",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：重複名稱去重",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：明列專案名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：明列專案名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：無引號無年度名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：無引號無年度名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：發文字號換行",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：發文字號換行",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：引號內名稱未以計畫結尾",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：引號內名稱未以計畫結尾",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：設備案名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：設備案名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：不將補助要點誤當名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：不將補助要點誤當名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：半形標點轉全形",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：半形標點轉全形",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：既有全形標點維持全形",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：既有全形標點維持全形",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：核定貴校辦理後無引號",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：核定貴校辦理後無引號",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：補助後無引號且無計畫結尾",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：補助後無引號且無計畫結尾",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：有關貴校所報核定句型",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：有關貴校所報核定句型",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：核准貴校辦理及年度",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：核准貴校辦理及年度",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：補助辦理連續開頭字詞",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：補助辦理連續開頭字詞",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：無引號多個名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：無引號多個名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：單純核銷事宜不當專案",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：單純核銷事宜不當專案",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：旨揭計畫不當完整名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：旨揭計畫不當完整名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：名稱內經費二字應保留",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：名稱內經費二字應保留",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：無引號名稱有全形括號",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：無引號名稱有全形括號",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：使用者閱讀推動計畫實例",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：使用者閱讀推動計畫實例",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：引號外學年度保留",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：引號外學年度保留",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：簡稱另有引號不列為第二計畫",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：簡稱另有引號不列為第二計畫",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：不同年度多個名稱分別保留",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：不同年度多個名稱分別保留",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：發所依專案語境校正為發掘",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：發所依專案語境校正為發掘",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：原本正確發掘保持不變",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：原本正確發掘保持不變",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：其他名稱不盲目替換發所",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：其他名稱不盲目替換發所",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：OCR空白發所仍可校正",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：OCR空白發所仍可校正",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "瀏覽器：空白文字不亂填",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python API：空白文字不亂填",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "截圖入口位於手填區之前",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "選圖自動觸發辨識",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "拖放自動觸發辨識",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "貼圖自動觸發辨識",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "Python結果顯示名稱與來源",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "套用三個欄位且需重新核對",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "未辨識到欄位不清空原資料",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "多專案保留候選供選擇",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "實際圖片OCR擷取日期",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "實際圖片OCR擷取文號",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "實際圖片OCR擷取專案名稱",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "完整流程使用Python整理",
+                        "pass":  true
+                    },
+                    {
+                        "name":  "辨識後恢復可操作",
+                        "pass":  true
+                    }
+                ],
+    "ocrText":  "嘉義 縣 政府 子\n\n發 文 日 期 ： 中 華 民 國 115 年 10 月 21 日\n\n發 文 字 號 ： 府 教 社 字 第 1150001234 號\n\n主 旨 ： 核 是 ＇115 年 度 校園 閱讀 推 廣 計 畫 」 補 助 經 費 ， 請 查照 。\n",
+    "ocrProject":  "115年度校園閱讀推廣計畫",
+    "ocrDate":  "115年10月21日",
+    "ocrNumber":  "府教社字第1150001234號"
+}
