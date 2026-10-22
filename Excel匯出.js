@@ -23,7 +23,7 @@ function buildExcelFiles(){
  setCell('A2',$('organization').value);setCell('B5',$('project').value);setCell('B6',$('agency').value);setCell('B7',$('date').value+$('number').value);
  setCell('B8',amountInUnits(a),unitFormula('B18'));setCell('F8',amountInUnits(s),unitFormula('F18'));
  setCell('B9',refundAmount(balance),'"新臺幣 '+chinese(balance)+' 元整（$"&TEXT(B19,"#,##0")&"）"');
- setCell('B10',$('payee').value==='其他'?'□嘉義縣政府　　■其他：'+$('other').value:'■嘉義縣政府　　□其他');setCell('B11',$('notes').value);
+ setCell('B10',$('payee').value==='其他'?$('other').value:$('payee').value);setCell('B11',$('notes').value);
  setCell('A18','核定數（元）');setCell('B18',a);setCell('D18','實支數（元）');setCell('F18',s);setCell('A19','差額（元）');setCell('B19',balance,'B18-F18');setCell('A20','金額編輯說明');setCell('B20','第18列為整數元；大寫為匯出時內容，修改金額後請核對更新或回工具重新匯出。');
  doc.getElementsByTagName('dimension')[0].setAttribute('ref','A1:G20');files['xl/worksheets/sheet1.xml']=new XMLSerializer().serializeToString(doc);
  const workbook=new DOMParser().parseFromString(files['xl/workbook.xml'],'application/xml');let calc=workbook.getElementsByTagName('calcPr')[0];if(!calc){calc=workbook.createElementNS(ns,'calcPr');workbook.documentElement.append(calc)}calc.setAttribute('fullCalcOnLoad','1');files['xl/workbook.xml']=new XMLSerializer().serializeToString(workbook);

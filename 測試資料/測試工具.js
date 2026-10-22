@@ -11,7 +11,7 @@ test('完整資料呼叫列印',()=>{let printed=false;window.print=()=>printed=
 $('spent').value='100001';render();test('超支阻擋與隱藏負數',()=>errors.some(t=>t.includes('超過'))&&$('balance').textContent==='—');
 $('spent').value='100000';render();test('零餘額提示',()=>$('checks').textContent.includes('繳回金額為 0'));
 $('payee').value='其他';render();test('其他抬頭必填',()=>!$('other').hidden&&errors.some(t=>t.includes('其他支票抬頭')));
-$('other').value='測試機關';render();test('其他抬頭預覽',()=>$('pPayee').textContent.includes('■其他：測試機關'));
+$('other').value='測試機關';render();test('其他抬頭預覽',()=>$('pPayee').textContent==='測試機關');
 for(const [name,text,date,num]of [
  ['一般公文','發文日期：中華民國115年10月21日\n發文字號：府教社字第1150001234號','115年10月21日','府教社字第1150001234號'],
  ['全形與空白','發文日期：１１５ 年 １０ 月 ２１ 日\n發文字號：府 教 社 字 第 １１５０００１２３４ 號','115年10月21日','府教社字第1150001234號'],
