@@ -12,3 +12,13 @@
 @page{size:A4;margin:19mm 17mm}
 @media print{#paper.template-paper{padding:0;line-height:1.5;min-height:0}.paper-form-meta{font-size:11.495pt;height:25.08pt;align-items:center}#paper.template-paper h2{font-size:20.9pt;line-height:31.35pt;margin:0}#paper.template-paper h2 small{display:block;font-size:11.495pt;line-height:25.08pt}#paper.template-paper h2 br:last-of-type{display:none}#paper.template-paper table{font-size:14.63pt}#paper.template-paper td,#paper.template-paper th{padding:4.18pt 3.135pt}#paper.template-paper .paper-project{height:66.88pt}#paper.template-paper .paper-agency{height:48.07pt}#paper.template-paper .paper-approval{height:50.16pt}#paper.template-paper .paper-amounts{height:60.61pt}#paper.template-paper .paper-refund{height:62.7pt}#paper.template-paper .paper-payee{height:50.16pt}#paper.template-paper .paper-notes{height:79.42pt}#paper.template-paper .paper-notes th{font-size:11.495pt}#paper.template-paper .paper-notes small{font-size:8.36pt}#paper.template-paper .paper-sign-head,#paper.template-paper .paper-supervisor{height:31.35pt}#paper.template-paper .paper-sign-space{height:43.89pt}#paper.template-paper .paper-process-note{font-size:10.45pt;line-height:14.63pt;margin:3.135pt 0 0}#paper.template-paper h2 [data-field="organization"]{font-size:18.81pt}}
 .paper-form-meta>span:first-child{flex:1}.paper-form-meta>span:last-child{flex:0 0 29.76%}
+
+@media screen{
+ html{scroll-padding-top:116px}
+ .workflow{position:sticky;top:0;z-index:20;background:var(--surface);box-shadow:0 3px 12px #0f172a0d;gap:16px}
+ .workflow .workflow-title{font-size:14px;font-weight:700;color:var(--ink);white-space:nowrap}
+ .workflow ol{flex:1}
+ .preview{top:116px}
+ #clearContent{color:var(--danger)}
+ @media(max-width:900px){.workflow{flex-wrap:wrap;gap:0}.workflow .workflow-title{width:100%;min-height:28px}.workflow ol{flex-basis:100%}}
+}

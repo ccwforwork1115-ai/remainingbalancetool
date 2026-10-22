@@ -49,3 +49,21 @@ $('confirmed').addEventListener('change',()=>{
  $('amount-section').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
  $('actionStatus').textContent='專案資料已確認，請填寫金額與繳回資訊。';
 });
+
+$('clearContent').onclick=()=>{
+ if(busy){$('actionStatus').textContent='公文辨識中，請待辨識完成後再清除。';return}
+ if(!confirm('確定清除目前填寫內容與公文辨識資料？尚未下載的內容將無法復原，建議先下載草稿。機關／學校名稱會保留。'))return;
+ fields.filter(id=>id!=='organization').forEach(id=>{if($(id).type==='checkbox')$(id).checked=false;else $(id).value=['agency','payee'].includes(id)?'嘉義縣政府':''});
+ extractionVersion++;imageFile=null;if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=null;
+ ['image','load','raw',...reviewFields.map(([id])=>id)].forEach(id=>$(id).value='');
+ reviewFields.forEach(([id])=>delete $(id).dataset.edited);
+ ['projectOptions','projectChoices','amountOptions'].forEach(id=>$(id).replaceChildren());
+ ['subjectText','projectExtractHint','amountExtractHint','copyOCRStatus'].forEach(id=>$(id).textContent='');
+ $('photo').removeAttribute('src');$('imageName').textContent='公文截圖';$('imagePanel').hidden=true;$('ocrResults').hidden=true;
+ ['rawDetails','subjectDetails','extractionDetails'].forEach(id=>$(id).open=false);
+ $('copyOCR').disabled=true;$('ocr').disabled=true;updateReviewState();
+ $('status').textContent='準備好公文截圖，就能開始。首次辨識需連線下載語言檔。';
+ touched.clear();showAllErrors=false;lastOverspendNotice='';render();
+ $('actionStatus').textContent='已清除填寫內容與辨識資料，保留機關／學校名稱。';
+ $('example').focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});
+};

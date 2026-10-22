@@ -86,6 +86,17 @@ Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:
 $('raw').value='主 旨：核 定\n測 試';await $('copyOCR').onclick();
 test('OCR複製失敗仍可選取去空格全文',()=>$('raw').value==='主旨：核定\n測試'&&$('raw').selectionEnd===$('raw').value.length&&$('copyOCRStatus').textContent.includes('Ctrl+C'));
 if(clipboardDescriptor)Object.defineProperty(navigator,'clipboard',clipboardDescriptor);else delete navigator.clipboard;
+
+$('example').click();const beforeClear=$('project').value;const savedConfirm=window.confirm;
+window.confirm=()=>false;$('clearContent').click();
+test('取消清除保留資料',()=>$('project').value===beforeClear);
+window.confirm=()=>true;$('raw').value='測試辨識內容';extract();$('confirmed').checked=true;$('attachment').checked=true;
+const savedOrg=$('organization').value;$('clearContent').click();
+test('清除本案欄位及確認勾選',()=>['project','date','number','approved','spent','other','notes'].every(id=>!$(id).value)&&!$('confirmed').checked&&!$('attachment').checked);
+test('清除保留學校及回復預設抬頭',()=>$('organization').value===savedOrg&&$('payee').value==='嘉義縣政府'&&$('agency').value==='嘉義縣政府');
+test('清除OCR與進度預覽',()=>!$('raw').value&&reviewFields.every(([id])=>!$(id).value)&&$('ocrResults').hidden&&$('imagePanel').hidden&&$('completion').value===0&&$('pBalance').textContent==='');
+$('project').value='辨識中保留';busy=true;$('clearContent').click();test('辨識中避免清除',()=>$('project').value==='辨識中保留');busy=false;
+window.confirm=savedConfirm;
 const report=document.createElement('pre');report.id='test-report';report.textContent=JSON.stringify({total:results.length,passed:results.filter(r=>r.pass).length,results},null,2);document.body.prepend(report);
 document.title='TESTS DONE';
 })();
