@@ -21,7 +21,7 @@ function buildExcelFiles(){
  function setCell(ref,value,formula){const c=cell(ref);c.replaceChildren();const string=typeof value==='string';if(formula){if(string)c.setAttribute('t','str');else c.removeAttribute('t');const f=doc.createElementNS(ns,'f');f.textContent=formula;c.append(f);const v=doc.createElementNS(ns,'v');v.textContent=String(value);c.append(v)}else if(string){c.setAttribute('t','inlineStr');const is=doc.createElementNS(ns,'is'),t=doc.createElementNS(ns,'t');t.setAttributeNS('http://www.w3.org/XML/1998/namespace','xml:space','preserve');t.textContent=value;is.append(t);c.append(is)}else{c.removeAttribute('t');const v=doc.createElementNS(ns,'v');v.textContent=String(value);c.append(v)}}
  const a=money($('approved').value),s=money($('spent').value),balance=a-s;
  const unitFormula=ref=>`IF(INT(${ref}/100000000)>0,TEXT(INT(${ref}/100000000),"#,##0")&"億","")&IF(MOD(INT(${ref}/10000),10000)>0,TEXT(MOD(INT(${ref}/10000),10000),"#,##0")&"萬","")&IF(OR(MOD(${ref},10000)>0,${ref}=0),TEXT(MOD(${ref},10000),"#,##0"),"")&"元"`;
- setCell('A2',$('organization').value);setCell('B5',$('project').value);setCell('B6',$('agency').value);setCell('B7',$('date').value+$('number').value);
+ setCell('F1','日期：'+todayROCDate());setCell('A2',$('organization').value);setCell('B5',$('project').value);setCell('B6',$('agency').value);setCell('B7',$('date').value+$('number').value);
  setCell('B8',amountInUnits(a),unitFormula('B18'));setCell('F8',amountInUnits(s),unitFormula('F18'));
  setCell('B9',refundAmount(balance),'"新臺幣 '+chinese(balance)+' 元整（$"&TEXT(B19,"#,##0")&"）"');
  setCell('B10',$('payee').value==='其他'?$('other').value:$('payee').value);setCell('B11',$('notes').value);

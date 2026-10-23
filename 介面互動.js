@@ -11,7 +11,12 @@ for(const id of Object.keys(fieldMessages)){
  input.setAttribute('aria-describedby',[input.getAttribute('aria-describedby'),note.id].filter(Boolean).join(' '));
  input.addEventListener('blur',()=>{touched.add(id);updateInterface()});
 }
+function todayROCDate(now=new Date()){return `${now.getFullYear()-1911}年${now.getMonth()+1}月${now.getDate()}日`}
+function updateDocumentDate(){$('pDocumentDate').textContent=todayROCDate()}
+window.addEventListener('beforeprint',updateDocumentDate);
+window.addEventListener('focus',updateDocumentDate);
 function updateInterface(){
+ updateDocumentDate();
  if(typeof syncDatePicker==='function')syncDatePicker();
  $('otherLabel').hidden=$('payee').value!=='其他';
  for(const id of Object.keys(fieldMessages)){const invalid=(showAllErrors||touched.has(id))&&fieldInvalid(id);$(id).setAttribute('aria-invalid',String(invalid));$(id+'Error').textContent=invalid?fieldMessages[id]:''}
