@@ -19,6 +19,7 @@ function buildExcelFiles(){
  const ns='http://schemas.openxmlformats.org/spreadsheetml/2006/main',doc=new DOMParser().parseFromString(files['xl/worksheets/sheet1.xml'],'application/xml'),data=doc.getElementsByTagName('sheetData')[0];
  function cell(ref){let c=[...doc.getElementsByTagName('c')].find(e=>e.getAttribute('r')===ref);if(c)return c;const n=ref.match(/\d+/)[0];let row=[...data.children].find(e=>e.getAttribute('r')===n);if(!row){row=doc.createElementNS(ns,'row');row.setAttribute('r',n);row.setAttribute('ht','32');row.setAttribute('customHeight','1');data.append(row)}c=doc.createElementNS(ns,'c');c.setAttribute('r',ref);c.setAttribute('s','10');row.append(c);return c}
  function setCell(ref,value,formula){const c=cell(ref);c.replaceChildren();const string=typeof value==='string';if(formula){if(string)c.setAttribute('t','str');else c.removeAttribute('t');const f=doc.createElementNS(ns,'f');f.textContent=formula;c.append(f);const v=doc.createElementNS(ns,'v');v.textContent=String(value);c.append(v)}else if(string){c.setAttribute('t','inlineStr');const is=doc.createElementNS(ns,'is'),t=doc.createElementNS(ns,'t');t.setAttributeNS('http://www.w3.org/XML/1998/namespace','xml:space','preserve');t.textContent=value;is.append(t);c.append(is)}else{c.removeAttribute('t');const v=doc.createElementNS(ns,'v');v.textContent=String(value);c.append(v)}}
+ function hideExportRows(rows){for(const rowNum of rows){const row=[...data.getElementsByTagName('row')].find(e=>e.getAttribute('r')===String(rowNum));if(row){row.setAttribute('hidden','1');row.setAttribute('collapsed','1');row.setAttribute('customHeight','0');row.setAttribute('ht','0');}}}
  const a=money($('approved').value),s=money($('spent').value),balance=a-s;
  const unitFormula=ref=>`IF(INT(${ref}/100000000)>0,TEXT(INT(${ref}/100000000),"#,##0")&"億","")&IF(MOD(INT(${ref}/10000),10000)>0,TEXT(MOD(INT(${ref}/10000),10000),"#,##0")&"萬","")&IF(OR(MOD(${ref},10000)>0,${ref}=0),TEXT(MOD(${ref},10000),"#,##0"),"")&"元"`;
  setCell('F1','日期：'+todayROCDate());setCell('A2',$('organization').value);setCell('B5',$('project').value);setCell('B6',$('agency').value);setCell('B7',$('date').value+$('number').value);
@@ -26,8 +27,15 @@ function buildExcelFiles(){
  setCell('B9',refundAmount(balance),'"新臺幣 '+chinese(balance)+' 元整（$"&TEXT(B19,"#,##0")&"）"');
  setCell('B10',$('payee').value==='其他'?$('other').value:$('payee').value);setCell('B11',$('notes').value);
  setCell('A18','核定數（元）');setCell('B18',a);setCell('D18','實支數（元）');setCell('F18',s);setCell('A19','差額（元）');setCell('B19',balance,'B18-F18');setCell('A20','金額編輯說明');setCell('B20','第18列為整數元；大寫為匯出時內容，修改金額後請核對更新或回工具重新匯出。');
+ hideExportRows([18,19,20]);
+ // 正式簽辦單固定以 A4 直式一頁列印，隱藏輔助計算列。
+ let sheetPr=doc.getElementsByTagName('sheetPr')[0];if(!sheetPr){sheetPr=doc.createElementNS(ns,'sheetPr');doc.documentElement.prepend(sheetPr)}
+ let fit=sheetPr.getElementsByTagName('pageSetUpPr')[0];if(!fit){fit=doc.createElementNS(ns,'pageSetUpPr');sheetPr.append(fit)}fit.setAttribute('fitToPage','1');
+ const setup=doc.getElementsByTagName('pageSetup')[0];setup.setAttribute('paperSize','9');setup.setAttribute('orientation','portrait');setup.setAttribute('fitToWidth','1');setup.setAttribute('fitToHeight','1');setup.removeAttribute('scale');
+ for(const view of doc.getElementsByTagName('sheetView')){view.setAttribute('view','normal');view.setAttribute('showGridLines','0')}
  doc.getElementsByTagName('dimension')[0].setAttribute('ref','A1:G20');files['xl/worksheets/sheet1.xml']=new XMLSerializer().serializeToString(doc);
- const workbook=new DOMParser().parseFromString(files['xl/workbook.xml'],'application/xml');let calc=workbook.getElementsByTagName('calcPr')[0];if(!calc){calc=workbook.createElementNS(ns,'calcPr');workbook.documentElement.append(calc)}calc.setAttribute('fullCalcOnLoad','1');files['xl/workbook.xml']=new XMLSerializer().serializeToString(workbook);
+ const workbook=new DOMParser().parseFromString(files['xl/workbook.xml'],'application/xml');const sheetName=workbook.getElementsByTagName('sheet')[0].getAttribute('name');const area=workbook.querySelector('definedName[name="_xlnm.Print_Area"]');area.textContent="'"+sheetName.replace(/'/g,"''")+"'!$A$1:$G$16";
+ let calc=workbook.getElementsByTagName('calcPr')[0];if(!calc){calc=workbook.createElementNS(ns,'calcPr');workbook.documentElement.append(calc)}calc.setAttribute('fullCalcOnLoad','1');files['xl/workbook.xml']=new XMLSerializer().serializeToString(workbook);
  return files;
 }
 $('downloadExcel').onclick=()=>{
